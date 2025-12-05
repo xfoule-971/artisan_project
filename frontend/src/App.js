@@ -1,10 +1,11 @@
-import { Routes, Route} from "react-router-dom";
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from "./pages/Home";
 import Liste from "./pages/Liste";
-import Fiche from "./pages/Fiche";
+import ArtisanFiche from "./pages/ArtisanFiche";
 import Erreur from "./pages/Erreur";
 import Mentionslegales from "./pages/Mentionslegales";
 import Donnees from "./pages/Donnees";
@@ -17,24 +18,26 @@ import Politique from "./pages/Politique";
 import Gestion from "./pages/Gestion";
 
 const App = () => {
+    const [searchTerm, setSearchTerm] = useState(""); // état global pour la recherche
+
     return (
         <div>
-            <Header />
+            <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
 
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/artisans" element={<Liste />} />
-                <Route path="/artisans/:id" element={<Fiche />} />
+                <Route path="/liste/:slug" element={<Liste searchTerm={searchTerm} />} />
+                <Route path="/artisans/:id" element={<ArtisanFiche />} />
                 <Route path="*" element={<Erreur />} />
-                <Route path="/mentionslegales" element={<Mentionslegales />}></Route>
-                <Route path="/donnees" element={<Donnees />}></Route>
-                <Route path="/accessibilite" element={<Accessibilite />}></Route>
-                <Route path="/presse" element={<Presse />}></Route>
-                <Route path="/marches" element={<Marches />}></Route>
-                <Route path="/region" element={<Region />}></Route>
-                <Route path="/contacts" element={<Contacts />}></Route>
-                <Route path="/politique" element={<Politique />}></Route>
-                <Route path="/gestion" element={<Gestion />}></Route>
+                <Route path="/mentionslegales" element={<Mentionslegales />} />
+                <Route path="/donnees" element={<Donnees />} />
+                <Route path="/accessibilite" element={<Accessibilite />} />
+                <Route path="/presse" element={<Presse />} />
+                <Route path="/marches" element={<Marches />} />
+                <Route path="/region" element={<Region />} />
+                <Route path="/contacts" element={<Contacts />} />
+                <Route path="/politique" element={<Politique />} />
+                <Route path="/gestion" element={<Gestion />} />
             </Routes>
 
             <Footer />

@@ -1,35 +1,52 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
+const Header = ({ searchTerm, setSearchTerm }) => {
+  const navigate = useNavigate();
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Redirige vers la page Liste d'une catégorie par défaut (ex: batiment)
+    navigate("/liste/batiment");
+  };
 
-const Header = () => {
-    return(
-        <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
-                <Link class="navbar-brand" to="#">Auvergne</Link>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <Link class="nav-link active" aria-current="page" href="#">Home</Link>
-                    </li>
-                    <li class="nav-item">
-                        <Link class="nav-link" href="#">Link</Link>
-                    </li>
-                    <li class="nav-item">
-                        <Link class="nav-link disabled">Disabled</Link>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-                </div>
-            </div>
-        </nav>
-    )
+  return (
+    <nav className="navbar navbar-expand-lg p-3 navigation">
+      <div className="container-fluid">
+        <Link className="navbar-brand" to="/">Auvergne</Link>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li className="nav-item mx-5">
+              <Link to="/liste/batiment" className="navigation__link">Bâtiment</Link>
+            </li>
+            <li className="nav-item mx-5">
+              <Link to="/liste/services" className="navigation__link">Services</Link>
+            </li>
+            <li className="nav-item mx-5">
+              <Link to="/liste/fabrication" className="navigation__link">Fabrication</Link>
+            </li>
+            <li className="nav-item mx-5">
+              <Link to="/liste/alimentation" className="navigation__link">Alimentation</Link>
+            </li>
+          </ul>
+
+          <form className="d-flex" role="search" onSubmit={handleSubmit}>
+            <input
+              className="form-control me-2"
+              type="search"
+              placeholder="Rechercher..."
+              aria-label="Search"
+              value={searchTerm}                     // <-- lie l'input au state
+              onChange={(e) => setSearchTerm(e.target.value)} // <-- met à jour le state
+            />
+            <button className="btn btn-success" type="submit">Cliquez</button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  );
 };
 
 export default Header;

@@ -24,6 +24,71 @@ h1, h2 , h3 , h4, h5, strong{
   font-weight: 600;
 }
 
+h1{
+  color: #0074c7;
+}
+
 p, span{
   font-weight: 400;
+}
+
+/*header*/
+.navigation{
+  background-color: #0074c7;
+  padding: 2em;
+  color: #f1f8fc;
+
+  .navigation__link{
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+/*page liste*/
+
+.rating {
+  color: #f5c518; /* doré */
+  font-size: 18px; /* taille des étoiles */
+}
+
+/*footer*/
+footer{
+  background-color: #0074c7;
+  padding: 2em;
+  color: #f1f8fc;
+  .footext{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .footext__vignette{
+    width: 12em;
+    height: 6em;
+    background-color: #f1f8fc;
+  }
+  .footext__vignette-logo{
+    width: 10em;
+  }
+}
+.footer__menu{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2em;
+
+  .footer__menu-link{
+    color: inherit;
+  }
+}
+.socialnetwork{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5em;
+}
+.socialnetwork__link:hover{
+  cursor: pointer;
+  background-color: #82b864;
 }

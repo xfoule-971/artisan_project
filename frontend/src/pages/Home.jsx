@@ -5,15 +5,15 @@ const Home = () => {
     const [artisans, setArtisans] = useState([]);
 
     useEffect(() => {
-    fetch("http://localhost:4000/api/artisans/top")
+    fetch("http://localhost:4000/api/categories/top")
         .then(res => res.json())
         .then(data => setArtisans(data))
         .catch(err => console.error(err));
     }, [])
 
     return (
-        <div>
-            <section>
+        <div className="container mt-4">
+            <section className="row justify-content-center">
                 <h2>Comment trouver mon artisan?</h2>
                 <ol>
                     <li>
