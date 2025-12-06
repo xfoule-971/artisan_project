@@ -7,10 +7,11 @@ const ArtisanFiche = () => {
   const { id } = useParams();
   const [artisan, setArtisan] = useState(null);
 
-  // Formulaire email
-  const [formData, setFormData] = useState({ nom: "", email: "", message: "" });
+  // Formulaire de contact
+  const [formData, setFormData] = useState({ nom: "", email: "", objet: "", message: "" });
   const [status, setStatus] = useState("");
 
+  // Fetch artisan
   useEffect(() => {
     const fetchArtisan = async () => {
       try {
@@ -24,7 +25,8 @@ const ArtisanFiche = () => {
     fetchArtisan();
   }, [id]);
 
-  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleChange = (e) =>
+    setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,7 +38,7 @@ const ArtisanFiche = () => {
       });
       if (res.ok) {
         setStatus("Message envoyé !");
-        setFormData({ nom: "", email: "", message: "" });
+        setFormData({ nom: "", email: "", objet: "", message: "" });
       } else {
         setStatus("Erreur lors de l'envoi du message.");
       }
@@ -48,27 +50,39 @@ const ArtisanFiche = () => {
   if (!artisan) return <p className="text-center mt-4">Chargement...</p>;
 
   return (
-    <div className="container mt-4">
-      <h1 className="mb-4 text-center">{artisan.nom}</h1>
+    <div className="container my-5">
+      <h1 className="text-center mb-5">{artisan.nom}</h1>
 
-      <div className="card mx-auto mb-4" style={{ maxWidth: "500px" }}>
-        <img
-          src={`http://localhost:4000/uploads/${artisan.image}`}
-          className="card-img-top"
-          alt={artisan.nom}
-        />
-        <div className="card-body">
-          <RatingStars rating={Number(artisan.note)} />
-          <p className="specialite"><strong>Spécialité :</strong> {artisan.specialite}</p>
-          <p className="ville">
-            <img src={Localisation} alt="icône" /> {artisan.ville}
+      {/* Infos artisan */}
+      <div className="card mx-auto mb-4 p-3" style={{ maxWidth: "500px" }}>
+        {artisan.image && (
+          <img
+            src={`http://localhost:4000/uploads/${artisan.image}`}
+            alt={artisan.nom}
+            className="card-img-top mb-3"
+          />
+        )}
+
+        {artisan.note && <RatingStars rating={Number(artisan.note)} />}
+
+        <p>
+          <strong>Ville :</strong> <img src={Localisation} alt="icône" /> {artisan.ville}
+        </p>
+        {artisan.siteweb && (
+          <p>
+            <strong>Site web :</strong>{" "}
+            <a href={artisan.siteweb} target="_blank" rel="noopener noreferrer">
+              {artisan.siteweb}
+            </a>
           </p>
-        </div>
+        )}
       </div>
 
+      {/* Formulaire de contact */}
       <div className="card mx-auto p-4" style={{ maxWidth: "500px" }}>
-        <h3 className="mb-3">Contacter cet artisan</h3>
-        {status && <p>{status}</p>}
+        <h3 className="mb-3 text-center">Contacter cet artisan</h3>
+        {status && <p className="text-center">{status}</p>}
+
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="nom" className="form-label">Votre nom</label>
@@ -97,6 +111,19 @@ const ArtisanFiche = () => {
           </div>
 
           <div className="mb-3">
+            <label htmlFor="objet" className="form-label">Objet</label>
+            <input
+              type="text"
+              className="form-control"
+              id="objet"
+              name="objet"
+              value={formData.objet}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="mb-3">
             <label htmlFor="message" className="form-label">Message</label>
             <textarea
               className="form-control"
@@ -109,7 +136,7 @@ const ArtisanFiche = () => {
             />
           </div>
 
-          <button type="submit" className="btn btn-success">Envoyer</button>
+          <button type="submit" className="btn btn-success w-100">Envoyer</button>
         </form>
       </div>
     </div>
@@ -117,3 +144,6 @@ const ArtisanFiche = () => {
 };
 
 export default ArtisanFiche;
+
+
+

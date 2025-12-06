@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import Logo from "../assets/images/Logo.png";
 
 const Header = ({ searchTerm, setSearchTerm }) => {
   const navigate = useNavigate();
@@ -10,9 +11,13 @@ const Header = ({ searchTerm, setSearchTerm }) => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg p-3 navigation">
+    <nav className="navbar navbar-expand-lg p-2 navigation">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="/">Auvergne</Link>
+        <Link className="navbar-brand" to="/">
+          <div className="bg-light" style={{ width: "9rem" }}>
+            <img src={Logo} alt="embleme" style={{ width: "9rem" }}/>
+          </div>
+        </Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02">
           <span className="navbar-toggler-icon"></span>
         </button>

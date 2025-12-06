@@ -3,7 +3,7 @@ import Localisation from "../assets/icons/pin.png";
 
 const ArtisanCard = ({ artisan }) => {
   return (
-    <div className="card bg-success card-survol" style={{ width: "18rem" }}>
+    <div className="card bg-success card-survol text-light" style={{ width: "18rem" }}>
       {artisan.image && (
         <img
           src={`http://localhost:4000/uploads/${artisan.image}`}
