@@ -17,10 +17,8 @@ const Home = () => {
     <div>
       <Helmet>
         <title>Annuaire des artisans d'Auvergne</title>
-        <meta
-          name="description"
-          content="Trouvez un artisan local : bâtiment, services, fabrication, alimentation."
-        />
+        {/*La description aux moteurs de recherche*/}
+        <meta name="description" content="Trouvez un artisan local : bâtiment, services, fabrication, alimentation."/>
       </Helmet>
 
       {/* Titre principal responsive et centré */}

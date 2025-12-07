@@ -19,7 +19,6 @@ const pool = require('../db');
  *       200:
  *         description: artisan demandé
  */
-
 // Récupérer un artisan par son id
 router.get('/:id', async (req, res) => {
   try {
@@ -39,4 +38,33 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /api/artisans:
+ *   get:
+ *     summary: Récupère un artisan par son nom
+ *     tags: [Artisans]
+ *     responses:
+ *       200:
+ *         description: artisan demandé
+ */
+// Récupérer un artisan par son nom
+router.get("/", async (req, res) => {
+  const { search } = req.query;
+  try {
+    let query = "SELECT * FROM artisans";
+    let params = [];
+
+    if (search) {
+      query += " WHERE nom LIKE ?";
+      params.push(`%${search}%`);
+    }
+
+    const [rows] = await pool.query(query, params);
+    res.json(rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Erreur serveur" });
+  }
+});
 module.exports = router;
