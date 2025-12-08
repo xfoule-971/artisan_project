@@ -10,7 +10,7 @@ const RatingStars = ({rating}) =>{
     }
 
     return (
-        <div className="rating">
+        <div className="rating card-deco">
             {stars.join(' ')}
         </div>
     )

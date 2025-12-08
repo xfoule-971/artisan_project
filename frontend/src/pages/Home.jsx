@@ -22,16 +22,18 @@ const Home = () => {
       </Helmet>
 
       {/* Titre principal responsive et centré */}
-      <h1 className="container text-primary fw-bold m-4 fs-5 fs-md-3 text-break text-center">
-        La région Auvergne : l'artisanat prémium
-      </h1>
-
       <div className="container my-5">
-        {/* Section "Trouver mon artisan" */}
-        <section className="d-flex justify-content-center align-items-start flex-wrap my-5">
+          <h1 className="text-primary fw-bold text-center z-1">
+            La région Auvergne : l'artisanat prémium
+          </h1>
+      </div>
+
+      <div className="container my-5 rounded-3 shadow-lg p-3">
+        {/* Section "Trouver mon arti san" */}
+        <section className="d-flex justify-content-center align-items-start flex-wrap my-5 gap-0">
           {/* Bloc texte */}
           <div
-            className="cadre text-light p-4 m-2 flex-grow-1"
+            className="cadre text-light p-4 flex-grow-1"
             style={{ minWidth: "280px", maxWidth: "32rem" }}
           >
             <h2 className="mb-4 fw-bolder text-center">Trouver mon artisan ?</h2>
@@ -45,7 +47,7 @@ const Home = () => {
 
           {/* Bloc image */}
           <div
-            className="m-2 flex-grow-1 d-flex justify-content-center"
+            className="flex-grow-1 d-flex justify-content-center"
             style={{ minWidth: "280px", maxWidth: "26rem" }}
           >
             <img src={Search} alt="cd-rom" className="img-fluid" />

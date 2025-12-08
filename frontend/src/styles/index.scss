@@ -43,6 +43,10 @@ p, span{
   padding: 1em;
 }
 
+.card-deco{
+  text-decoration: none !important;
+}
+
 /*page liste*/
 .rating {
   color: #f5c518; /* doré */
@@ -80,14 +84,34 @@ footer{
     color: inherit;
   }
 }
-.socialnetwork{
+
+/* Bloc réseaux sociaux */
+.socialnetwork {
   display: flex;
-  justify-content: center;
+  justify-content: center;  
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1.5em;
+  gap: 20px;                 
+  width: 100%;             
+/* Icônes réseaux sociaux */
+  .socialnetwork__icon {
+    font-size: 28px;
+    margin: 0 12px;
+    color: #f1f8fc !important;
+    transition: 0.3s ease;
+  }
 }
-.socialnetwork__link:hover{
-  cursor: pointer;
-  background-color: #82b864;
+
+/* survol des icôness des réseaux sociaux en gris */
+.socialnetwork__icon:hover {
+    color: #684050 !important;
+}
+
+/* survol des liens dans le footer*/
+.footer__menu-link:hover{
+  border-bottom: 0.1em solid #f1f8fc;
+}
+
+.details-link:hover{
+  text-decoration-color: #f1f8fc;
+  text-decoration-line: underline;
 }

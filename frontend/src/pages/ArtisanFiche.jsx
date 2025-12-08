@@ -67,7 +67,7 @@ const ArtisanFiche = () => {
         <meta name="description" content="Trouvez un artisan local : bâtiment, services, fabrication, alimentation." />
       </Helmet>
 
-      <div className="container my-5">
+      <div className="container my-5 rounded-3 shadow-lg p-3">
         <h1 className="text-center mb-5 text-primary fw-bold">{artisan.nom}</h1>
 
         <div className="row g-1">

@@ -35,10 +35,10 @@ const Liste = () => {
         <meta name="description" content="Trouvez un artisan local : bâtiment, services, fabrication, alimentation." />
       </Helmet>
 
-      <div className="container mt-4">
+      <div className="container my-5 rounded-3 shadow-lg p-3">
         <h1 className="text-center mb-4 text-primary fw-bold">Artisans dans la catégorie {slug}</h1>
-
-        <div className="row justify-content-center">
+ 
+        <div className="row justify-content-center my-5">
           {artisans.map((artisan) => (
             <div
               key={artisan.id}
