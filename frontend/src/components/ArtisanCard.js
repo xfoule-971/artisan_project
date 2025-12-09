@@ -15,7 +15,7 @@ const ArtisanCard = ({ artisan }) => {
       <div className="card-body text-center">
         <h5 className="card-title card-deco">{artisan.nom}</h5>
         <RatingStars rating={Number(artisan.note)}/>
-        <p className="specialite card-deco">{artisan.specialite}</p>
+        <p className="specialite card-deco"><strong>{artisan.specialite}</strong></p>
 
         <p className="ville d-flex justify-content-center align-items-center">
           <FontAwesomeIcon

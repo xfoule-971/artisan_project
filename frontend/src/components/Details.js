@@ -17,7 +17,7 @@ const Details = ({ artisan }) => {
         <h5 className="card-title">{artisan.nom}</h5>
         <RatingStars rating={Number(artisan.note)} />
 
-        <p className="specialite">{artisan.specialite}</p>
+        <p className="specialite"><strong>{artisan.specialite}</strong></p>
 
         {/* --- VILLE → GOOGLE MAPS --- */}
         {artisan.ville && (
