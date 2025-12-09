@@ -29,7 +29,7 @@ const Header = ({ searchTerm, setSearchTerm }) => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg p-2 navigation">
+    <nav className="navbar navbar-expand-lg p-2 fixed-top navigation">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           <div className="bg-light" style={{ width: "9rem" }}>

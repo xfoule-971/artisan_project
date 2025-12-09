@@ -83,7 +83,7 @@ Installer les dépendances et lancer le serveur :
 ```bash
 cd backend
 npm install
-npm start
+npm dev
 ```
 
 Le serveur écoute par défaut sur `http://localhost:4000`.
