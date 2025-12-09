@@ -3,7 +3,7 @@ import Construc from "../assets/images/construction.jpg";
 
 const Mentionslegales = () => {
     return (
-        <div>
+        <>
             <Helmet>
                 <title>Annuaire des artisans d'Auvergne</title>
                 {/*La description aux moteurs de recherche*/}
@@ -12,11 +12,13 @@ const Mentionslegales = () => {
                 <meta name="robots" content="noindex, nofollow" />
             </Helmet>
 
-            <div className="container my-5 text-center">
-                <img src={Construc} alt="construction" style={{ width: "30rem" }} className='img-fluid'></img>
-                <h1 className="text-center my-3">Page en cours de construction...</h1>
-            </div>
-        </div>
+            <main className="mt-5 pt-5 text-center">
+                <div className="container my-5">
+                    <img src={Construc} alt="construction" className="img-fluid" style={{ maxWidth: "30rem" }} />
+                    <h1 className="my-3">Page en cours de construction...</h1>
+                </div>
+            </main>
+        </>
     )
 };
 

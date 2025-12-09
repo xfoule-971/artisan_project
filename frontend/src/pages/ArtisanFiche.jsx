@@ -60,61 +60,66 @@ const ArtisanFiche = () => {
   if (!artisan) return <p className="text-center mt-4">{status || "Chargement..."}</p>;
 
   return (
-    <div>
+    <>
       <Helmet>
         <title>Annuaire des artisans d'Auvergne</title>
         {/*La description aux moteurs de recherche*/}
-        <meta name="description" content="Trouvez un artisan local : bâtiment, services, fabrication, alimentation." />
+        <meta name="description" content="Trouvez un artisan local : bâtiment, services, fabrication, alimentation."/>
       </Helmet>
 
-      <div className="container my-5">
-        <h1 className="text-center mb-5 text-primary fw-bold">{artisan.nom}</h1>
+      <main className="mt-5 pt-5">
+        <div className="container my-5 rounded-3 shadow-lg p-3">
 
-        <div className="row g-1">
+          <h1 className="text-center mb-5 text-primary fw-bold">{artisan.nom}</h1>
 
-          {/*fiche détaillée d'un artisan*/}
-          <div className="col-12 col-lg-7 d-flex justify-content-center">
-            <Details artisan={artisan} />
-          </div>
+          <div className="row g-1">
 
-          {/*formulaire de contact*/}
-          <div className="col-12 col-lg-5">
-            <div className="card p-4 shadow-sm bg-secondary">
-              <h3 className="mb-3 text-center fw-bolder">Contacter l'artisan</h3>
-              {status && <p className="text-center">{status}</p>}
-
-              <form onSubmit={handleSubmit}>
-                <div className="mb-3">
-                  <label className="form-label">Votre nom</label>
-                  <input type="text" name="nom" className="form-control" value={formData.nom} onChange={handleChange} required />
-                </div>
-
-                <div className="mb-3">
-                  <label className="form-label">Votre email</label>
-                  <input type="email" name="email" className="form-control" value={formData.email} onChange={handleChange} required />
-                </div>
-
-                <div className="mb-3">
-                  <label className="form-label">Objet</label>
-                  <input type="text" name="objet" className="form-control" value={formData.objet} onChange={handleChange} required />
-                </div>
-
-                <div className="mb-3">
-                  <label className="form-label">Message</label>
-                  <textarea name="message" className="form-control" rows="4" value={formData.message} onChange={handleChange} required />
-                </div>
-
-                <button type="submit" className="btn btn-success w-100">Envoyer</button>
-              </form>
+            {/* Fiche détaillée */}
+            <div className="col-12 col-lg-7 d-flex justify-content-center">
+              <Details artisan={artisan} />
             </div>
+
+            {/* Formulaire de contact */}
+            <div className="col-12 col-lg-5">
+              <div className="card p-4 shadow-sm bg-secondary">
+                <h3 className="mb-3 text-center fw-bolder">Contacter l'artisan</h3>
+                {status && <p className="text-center">{status}</p>}
+
+                <form onSubmit={handleSubmit}>
+                  <div className="mb-3">
+                    <label className="form-label">Votre nom</label>
+                    <input type="text" name="nom" className="form-control" value={formData.nom} onChange={handleChange} required />
+                  </div>
+
+                  <div className="mb-3">
+                    <label className="form-label">Votre email</label>
+                    <input type="email" name="email" className="form-control" value={formData.email} onChange={handleChange} required />
+                  </div>
+
+                  <div className="mb-3">
+                    <label className="form-label">Objet</label>
+                    <input type="text" name="objet" className="form-control" value={formData.objet} onChange={handleChange} required />
+                  </div>
+
+                  <div className="mb-3">
+                    <label className="form-label">Message</label>
+                    <textarea name="message" className="form-control" rows="4" value={formData.message} onChange={handleChange} required />
+                  </div>
+
+                  <button type="submit" className="btn btn-success w-100">Envoyer</button>
+                </form>
+              </div>
+            </div>
+
           </div>
         </div>
-      </div>
-    </div>
+      </main>
+    </>
   );
 };
 
 export default ArtisanFiche;
+
 
 
 

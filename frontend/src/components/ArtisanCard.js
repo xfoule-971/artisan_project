@@ -1,5 +1,6 @@
 import RatingStars from "./RatingStars";
-import Localisation from "../assets/icons/pin.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 const ArtisanCard = ({ artisan }) => {
   return (
@@ -12,12 +13,16 @@ const ArtisanCard = ({ artisan }) => {
         />
       )}
       <div className="card-body text-center">
-        <h5 className="card-title">{artisan.nom}</h5>
-        <RatingStars rating={Number(artisan.note)} />
-        <p className="specialite">{artisan.specialite}</p>
-        <p className="ville">
-          <img src={Localisation} alt="icône" style={{ width: "16px", marginRight: "4px" }} />
-          <span>{artisan.ville}</span>
+        <h5 className="card-title card-deco">{artisan.nom}</h5>
+        <RatingStars rating={Number(artisan.note)}/>
+        <p className="specialite card-deco"><strong>{artisan.specialite}</strong></p>
+
+        <p className="ville d-flex justify-content-center align-items-center">
+          <FontAwesomeIcon
+            icon={faLocationDot}
+            className="ville__icon"
+          />
+          <span className="ms-2 card-deco">{artisan.ville}</span>
         </p>
       </div>
     </div>

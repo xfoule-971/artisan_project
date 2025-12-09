@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Logo from "../assets/images/Logo.png";
 
 const Header = ({ searchTerm, setSearchTerm }) => {
@@ -29,7 +29,7 @@ const Header = ({ searchTerm, setSearchTerm }) => {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg p-2 navigation">
+    <nav className="navbar navbar-expand-lg p-2 fixed-top navigation">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           <div className="bg-light" style={{ width: "9rem" }}>
@@ -50,16 +50,36 @@ const Header = ({ searchTerm, setSearchTerm }) => {
           {/* Liens de menu */}
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item mx-3">
-              <Link to="/liste/batiment" className="navigation__link">Bâtiment</Link>
+              <NavLink to="/liste/batiment" 
+              style={({isActive}) =>({
+                fontWeight: isActive? 'bold' : 'normal',
+                borderBottom: isActive? '2px solid #fff': 'none',
+              })}
+              className="navigation__link">Bâtiment</NavLink>
             </li>
             <li className="nav-item mx-3">
-              <Link to="/liste/services" className="navigation__link">Services</Link>
+              <NavLink to="/liste/services"
+              style={({isActive}) =>({
+                fontWeight: isActive? 'bold' : 'normal',
+                borderBottom: isActive? '2px solid #fff': 'none',
+              })} 
+              className="navigation__link">Services</NavLink>
             </li>
             <li className="nav-item mx-3">
-              <Link to="/liste/fabrication" className="navigation__link">Fabrication</Link>
+              <NavLink to="/liste/fabrication"
+              style={({isActive}) =>({
+                fontWeight: isActive? 'bold' : 'normal',
+                borderBottom: isActive? '2px solid #fff': 'none',
+              })} 
+              className="navigation__link">Fabrication</NavLink>
             </li>
             <li className="nav-item mx-3">
-              <Link to="/liste/alimentation" className="navigation__link">Alimentation</Link>
+              <NavLink to="/liste/alimentation"
+              style={({isActive}) =>({
+                fontWeight: isActive? 'bold' : 'normal',
+                borderBottom: isActive? '2px solid #fff': 'none',
+              })} 
+              className="navigation__link">Alimentation</NavLink>
             </li>
           </ul>
 
