@@ -7,7 +7,7 @@ const Home = () => {
   const [artisans, setArtisans] = useState([]);
 
   useEffect(() => {
-    fetch("https://annuaire-backend.onrender.com/api/categories/top")
+    fetch("http://localhost:4000/api/categories/top")
       .then((res) => res.json())
       .then((data) => setArtisans(data))
       .catch((err) => console.error(err));

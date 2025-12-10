@@ -7,7 +7,7 @@ const ArtisanCard = ({ artisan }) => {
     <div className="card bg-success card-survol text-light" style={{ width: "18rem" }}>
       {artisan.image && (
         <img
-          src={`https://annuaire-backend.onrender.com/uploads/${artisan.image}`}
+          src={`http://localhost:4000/uploads/${artisan.image}`}
           className="card-img-top"
           alt={artisan.nom}
         />
