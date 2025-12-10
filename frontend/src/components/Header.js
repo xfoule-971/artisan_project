@@ -11,7 +11,7 @@ const Header = ({ searchTerm, setSearchTerm }) => {
 
     try {
       // Rechercher artisan par nom via l'API
-      const res = await fetch(`https://annuaire-backend.onrender.com/api/artisans?search=${encodeURIComponent(terme)}`);
+      const res = await fetch(`http://localhost:4000/api/artisans?search=${encodeURIComponent(terme)}`);
       const data = await res.json();
 
       if (data.length === 0) {

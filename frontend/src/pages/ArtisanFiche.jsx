@@ -20,7 +20,7 @@ const ArtisanFiche = () => {
     if (!artisan && id) {
       const fetchArtisan = async () => {
         try {
-          const res = await fetch(`https://annuaire-backend.onrender.com/api/artisans/${id}`);
+          const res = await fetch(`http://localhost:4000/api/artisans/${id}`);
           if (!res.ok) throw new Error("Artisan non trouvé");
           const data = await res.json();
           setArtisan(data);
@@ -41,7 +41,7 @@ const ArtisanFiche = () => {
     e.preventDefault();
     if (!id) return;
     try {
-      const res = await fetch(`https://annuaire-backend.onrender.com/api/contact/${id}`, {
+      const res = await fetch(`http://localhost:4000/api/contact/${id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
