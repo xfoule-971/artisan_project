@@ -8,10 +8,10 @@ const Liste = () => {
   const [artisans, setArtisans] = useState([]);
 
   const routes = {
-    batiment: "http://localhost:4000/api/categories/batiment",
-    services: "http://localhost:4000/api/categories/services",
-    fabrication: "http://localhost:4000/api/categories/fabrication",
-    alimentation: "http://localhost:4000/api/categories/alimentation",
+    batiment: "https://annuaire-backend.onrender.com/api/categories/batiment",
+    services: "https://annuaire-backend.onrender.com/api/categories/services",
+    fabrication: "https://annuaire-backend.onrender.com/api/categories/fabrication",
+    alimentation: "https://annuaire-backend.onrender.com/api/categories/alimentation",
   };
 
   useEffect(() => {
